@@ -1,3 +1,3 @@
 # Valorant_Daily_Shop
-Personal skin alert for valorant daily shop
+Personal skin alert for valorant daily shop.<br>
 Status: in progress ....
