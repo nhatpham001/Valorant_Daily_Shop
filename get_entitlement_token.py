@@ -41,7 +41,7 @@ def get_entitlement_token(port_number):
 
     payload = ""
 
-    headers = {'Authorization': "Basic cmlvdDo1OEdaTWtzMlptTHo0aE9lcERJWWtB"}
+    headers = {'Authorization': "Basic cmlvdDo4SXNQVEJxNGdPWUt1cDVWN0h1eWpR"}
 
     # Send the request
     conn.request("GET", "/entitlements/v1/token", payload, headers)
@@ -50,9 +50,13 @@ def get_entitlement_token(port_number):
     res = conn.getresponse()
     data = res.read()
     data = data.decode("utf-8")
-    tokens = json.loads(data)
+    data_info = json.loads(data)
+    token = data_info.get("accessToken", "")
     # Print the response data
-    print(tokens.get("accessToken", ""))
+    access_token = "Bearer " + token
+    print("access_token: ", access_token)
+    return access_token
 
-port =  get_lockfile_port()
-get_entitlement_token(port)
+#example of functions 
+# port =  get_lockfile_port()
+# get_entitlement_token(port)
